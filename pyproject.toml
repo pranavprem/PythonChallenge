@@ -1,0 +1,45 @@
+[project]
+name = "pythonchallenge"
+version = "0.1.0"
+description = "Pranav Prem's solutions to the first levels of The Python Challenge."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Pranav Prem" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.17.0",
+]
+
+[project.scripts]
+pythonchallenge = "pythonchallenge.__main__:main"
+
+[project.urls]
+Challenge = "http://www.pythonchallenge.com/"
+Repository = "https://github.com/pranavprem/PythonChallenge"
+
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pythonchallenge*"]
+
+[tool.setuptools.package-data]
+pythonchallenge = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+src = ["pythonchallenge", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pythonchallenge"]
